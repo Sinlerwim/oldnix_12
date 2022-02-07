@@ -24,9 +24,15 @@ public class Main {
     }
     public static void Logic(String input) {
         switch(input) {
-            case "1" -> System.out.println("\nThe name of class: " + new FirstClass().getClass().getName() + " Imported lib: commons-math3-3.6.1\n");
-            case "2" -> System.out.println("\nThe name of class: " + new SecondClass().getClass().getName() + '\n');
-            case "3" -> System.out.println("\nThe name of class: " + new ThirdClass().getClass().getName() + " Imported lib: commons-lang3-3.12.0\n");
+            case "1":
+                System.out.println("\nThe name of class: " + new FirstClass().getClass().getName() + " Imported lib: commons-math3-3.6.1\n");
+                break;
+            case "2":
+                System.out.println("\nThe name of class: " + new SecondClass().getClass().getName() + '\n');
+                break;
+            case "3":
+                System.out.println("\nThe name of class: " + new ThirdClass().getClass().getName() + " Imported lib: commons-lang3-3.12.0\n");
+                break;
         }
     }
 }
