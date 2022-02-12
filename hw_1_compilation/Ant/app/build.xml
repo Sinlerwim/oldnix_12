@@ -17,7 +17,7 @@
         <mkdir dir="build/jar"/>
         <jar destfile="build/jar/hw_1_compilation.jar" basedir="build">
             <manifest>
-                <attribute name="Main-Class" value="ua.Main"/>
+                <attribute name="ua.Main-Class" value="ua.ua.Main"/>
                 <attribute name="Class-Path" value="libs/*.jar"/>
             </manifest>
             <zipgroupfileset dir="libs" includes="*.jar"/>

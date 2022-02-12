@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>java</groupId>
-    <artifactId>hw_2_base_types</artifactId>
+    <artifactId>hw_3_strings</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
@@ -15,7 +15,7 @@
     </properties>
 
     <build>
-        <finalName>ua.Main</finalName>
+        <finalName>reversestring</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -31,7 +31,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>ua.Main</mainClass>
+                                    <mainClass>ua.reversestring</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
