@@ -98,19 +98,6 @@ public class Main {
 
     public static void findLessonTime() {
         System.out.println("Input number of lesson you need:");
-        /*for (int i=1; i<=10; i++) {
-            int answerMinutes = 0;
-            int a = i*45;
-            int b = i/2*15;
-            int c = (i/2)*5;
-            int d = (i%2-1)*15;
-
-            answerMinutes += i*45 + i/2*15 + (i/2)*5 + (i%2-1)*15;
-            int answerHours = 9+ answerMinutes / 60;
-            answerMinutes -= 60*(answerHours-9);
-            System.out.println("Lesson number "+i+ " ends in "+answerHours+':'+answerMinutes);
-        }*/
-
         String input;
         int answerHours, answerMinutes = 0;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
