@@ -1,0 +1,8 @@
+.idea
+*.iml
+*.class
+*.target
+*.ps1
+/hw_1_compilation/Console/build/ua
+/hw_1_compilation/Ant/app/build/
+/hw_2_base_types/target/
