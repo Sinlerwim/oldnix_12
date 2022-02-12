@@ -6,63 +6,73 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("\n\n\nWelcome to homework #2!\n\nThere are 3 different task have done here:");
-        System.out.println("1. Find number in string and sum them");
-        System.out.println("2. Count all letters and print amount of each one");
-        System.out.println("3. Find end-time of any lesson (1-10)\n");
-        System.out.println("Choose the task you need (1-3):");
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            String line = "0";
-            while (!line.isEmpty()) {
-                line = reader.readLine();
-                Logic(line);
+            String navigation = "";
+            String line = "";
+            while (!navigation.equals("0")) {
+                System.out.println("1. Find number in string and sum them");
+                System.out.println("2. Count all letters and print amount of each one");
+                System.out.println("3. Find end-time of any lesson (1-10)\n");
+                System.out.println("Choose the task you need (1-3) or 0 to exit:");
+                navigation = reader.readLine();
+                switch (navigation) {
+                    case "1":
+                        System.out.println("Input your string:");
+                        line = reader.readLine();
+                        System.out.println("Sum of all found numbers are " + findNumbersAndSum(line));
+                        System.out.println("\nInput any symbol to return to main menu");
+                        line = reader.readLine();
+                        break;
+                    case "2":
+                        System.out.println("Input your string:");
+                        line = reader.readLine();
+                        findAllLetters(line);
+                        System.out.println("\nInput any symbol to return to main menu");
+                        line = reader.readLine();
+                        break;
+                    case "3":
+                        System.out.println("Input number of lesson you need:");
+                        line = reader.readLine();
+                        findLessonTime(line);
+                        System.out.println("\nInput any symbol to return to main menu");
+                        line = reader.readLine();
+                        break;
+                    case "0": break;
+                    default:
+                        System.out.println("Unexpected value: \"" + navigation +"\". Try 1-3 for tasks or 0 to exit");
+                }
             }
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
     }
 
-    public static void Logic(String input) {
-        switch (input) {
-            case "1" -> findNumbersAndSum();
-            case "2" -> findAllLetters();
-            case "3" -> findLessonTime();
-        }
-    }
-
-    public static void findNumbersAndSum() {
-        System.out.println("Input your string:");
+    public static int findNumbersAndSum(String input) {
         int result = 0;
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            String input = reader.readLine();
-            String number = "";
-            for (int counter = 0; counter < input.length(); counter++) {
-                if (Character.isDigit(input.charAt(counter))) {
-                    number += input.charAt(counter);
-                } else if (number != "") {
-                    System.out.println("Number " + number + " has found. Adding...");
-                    result += Integer.parseInt(number);
-                    number = "";
-                }
-            }
-            if (!number.isEmpty()) {
+        String number = "";
+        for (int counter = 0; counter < input.length(); counter++) {
+            if (Character.isDigit(input.charAt(counter))) {
+                number += input.charAt(counter);
+            } else if (number != "") {
                 System.out.println("Number " + number + " has found. Adding...");
                 result += Integer.parseInt(number);
                 number = "";
             }
-
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
         }
-        System.out.println("Sum of every found number are " + result);
+        if (!number.isEmpty()) {
+            System.out.println("Number " + number + " has found. Adding...");
+            result += Integer.parseInt(number);
+            number = "";
+        }
+
+
+        return result;
     }
 
-    public static void findAllLetters() {
-        System.out.println("Input your string:");
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            String input = reader.readLine();
+    public static void findAllLetters(String input) {
             input = input.replaceAll("[^A-z+^]", ""); // https://www.cyberforum.ru/java/thread934834.html
             if (!input.isEmpty()) {
-                System.out.println("Your string with only letter: " + input);
+                System.out.println("Your string with only letters: " + input);
             } else {
                 System.out.println("Your string doesn't contains any letter. Returning to main menu...");
             }
@@ -80,11 +90,7 @@ public class Main {
                     counter--;
                 }
             }
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
         }
-
-    }
 
     private static String deleteAllChar(String input, char c) {
         String resultString = "";
@@ -96,18 +102,12 @@ public class Main {
         return resultString;
     }
 
-    public static void findLessonTime() {
-        System.out.println("Input number of lesson you need:");
-        String input;
+    public static void findLessonTime(String input) {
         int answerHours, answerMinutes = 0;
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            input = reader.readLine();
             answerMinutes += Integer.parseInt(input)*45 + Integer.parseInt(input)/2*15 + ((Integer.parseInt(input))/2)*5 + (Integer.parseInt(input)%2-1)*15;
             answerHours = 9+ answerMinutes / 60;
             answerMinutes -= 60*(answerHours-9);
             System.out.println("Lesson number "+input+ " ends in "+answerHours+':'+answerMinutes);
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
-        }
+
     }
 }
