@@ -107,7 +107,7 @@ public class Main {
             answerMinutes += Integer.parseInt(input)*45 + Integer.parseInt(input)/2*15 + ((Integer.parseInt(input))/2)*5 + (Integer.parseInt(input)%2-1)*15;
             answerHours = 9+ answerMinutes / 60;
             answerMinutes -= 60*(answerHours-9);
-            System.out.println("Lesson number "+input+ " ends in "+answerHours+':'+answerMinutes);
+            System.out.println("Lesson number "+input+ " ends in "+answerHours+" hours "+ answerMinutes + " minutes");
 
     }
 }
